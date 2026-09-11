@@ -108,7 +108,7 @@ class Tree(Plant):
                  growth_rate: float, trunk_diameter: float) -> None:
         super().__init__(name, height, age, growth_rate)
         self.trunk_diameter = trunk_diameter
-        self.stats = Tree._Stats()
+        self.stats: "Tree._Stats" = Tree._Stats()
 
     def produce_shade(self) -> None:
         print(f"Tree {self.name} now produces a shade of "
@@ -186,7 +186,6 @@ def main() -> None:
     oak = Tree("Oak", 200.0, 365, 0.1, 5.0)
     oak.show()
     display_plant_stats(oak)
-    print(" 0 shade")
     print("[asking the oak to produce shade]")
     oak.produce_shade()
     display_plant_stats(oak)
